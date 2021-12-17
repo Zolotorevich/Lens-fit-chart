@@ -1,0 +1,76 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3736749, 2019-03-20T08:44:16-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: TTNormsPro-Bold by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/bold/
+ * 
+ * Webfont: TTNormsPro-Italic by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/ital/
+ * 
+ * Webfont: TTNormsPro-Regular by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/regular/
+ * 
+ * Webfont: TTNormsPro-Medium by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/medium/
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3736749
+ * Licensed pageviews: 20,000
+ * Webfonts copyright: Copyright (c) 2016-2019 by TypeType. Designers Ivan Gladkikh, Pavel Emelyanov. Technical designers Vika Usmanova, Olexa Volochay, Nadyr Rakhimov. All rights reserved.
+ * 
+ * © 2019 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3904ad");
+  
+@font-face {font-family: 'TTNormsPro-Bold';src: url('webfonts/3904AD_3_0.eot');src: url('webfonts/3904AD_3_0.eot?#iefix') format('embedded-opentype'),url('webfonts/3904AD_3_0.woff2') format('woff2'),url('webfonts/3904AD_3_0.woff') format('woff'),url('webfonts/3904AD_3_0.ttf') format('truetype');}
+ 
+@font-face {font-family: 'TTNormsPro-Regular';src: url('webfonts/3904AD_B_0.eot');src: url('webfonts/3904AD_B_0.eot?#iefix') format('embedded-opentype'),url('webfonts/3904AD_B_0.woff2') format('woff2'),url('webfonts/3904AD_B_0.woff') format('woff'),url('webfonts/3904AD_B_0.ttf') format('truetype');}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'TTNormsPro-Regular';
+	color:#fafafa;
+	background: url('img/background.gif') repeat;
+}
+
+.question_container {
+	font-family: 'TTNormsPro-Bold';
+	font-size: 48px;
+	position: absolute;
+	left:20%;
+	top: calc(100vh - 640px);
+}
+
+.question_container div {
+	margin:0 0 24px 0;
+	line-height: 40px;
+}
+
+#question_lens, #question_camera {
+	cursor: pointer;
+}
+
+#question_lens {
+	color: #e9562f;
+	border-bottom: 2px solid #e9562f;
+}
+
+#question_lens:hover, #question_camera:hover {
+	color:#949da4;
+}
+
+#question_camera {
+	color: #c27833;
+	border-bottom: 2px solid #c27833;
+}
