@@ -1,12 +1,20 @@
 var mountData = [
 	{
-		"mount":"Alpa",
+		"listDisplayName":"Alpa",
+		"selectDisplayName":"Alpa",
 		"flange":37.8,
-		"sensor":[["Full frame",36,24],["APC-C (1.6)",2,2]]
+		"sensor":[
+			["Full frame",36,24],
+			["APC-C",2,2]
+		]
 	},
 	{
-		"mount":"Alpa",
+		"listDisplayName":"Alpa",
+		"selectDisplayName":"Alpa",
 		"flange":37.8,
-		"sensor":[["Full frame",36,24],["APC-C (1.6)",2,2]]
+		"sensor":[
+			["Full frame",36,24],
+			["APC-C",2,2]
+		]
 	}
 ];
