@@ -121,7 +121,7 @@ body {
 	left:0;
 	top: calc(50% - 1px);
 	background-color: #c27833;
-	z-index: 100;
+	z-index: 250;
 }
 
 #lens_line {
