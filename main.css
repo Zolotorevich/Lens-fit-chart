@@ -95,8 +95,8 @@ body {
 	width: 480px;
 	height: 480px;
 	position: absolute;
-	left:562px;
-	top:200px;
+	left:calc(70% - 240px);
+	top:calc(50% - 240px);
 	border:2px solid #e9562f;
 	border-radius: 2000px;
 	background: url('img/background.gif') repeat;
@@ -107,15 +107,15 @@ body {
 	width: 360px;
 	height: 240px;
 	position: absolute;
-	left:622px;
-	top:320px;
+	left:calc(70% - 180px);
+	top:calc(50% - 120px);
 	border:2px solid #c27833;
 	background: url('img/background.gif') repeat;
 	z-index: 300;
 }
 
 #sensor_line {
-	width:75%;
+	width:70%;
 	height: 2px;
 	position: absolute;
 	left:0;
@@ -125,7 +125,7 @@ body {
 }
 
 #lens_line {
-	width:75%;
+	width:70%;
 	height: 2px;
 	position: absolute;
 	left:0;

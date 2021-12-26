@@ -26,17 +26,10 @@ function drawSensor(width,height) {
 	//change sensor size
 	$("#sensor_square").width(width);
 	$("#sensor_square").height(height);
-
-	//get midpoint position
-	midpoint = calculateMidPoint();
-
-	//calculate sensor position
-	sensorVerticalPosition = midpoint.vertical - (height / 2);
-	sensorHorizontalPosition = midpoint.horizontal - (width / 2);
 	
 	//apply new sensor position
-	$("#sensor_square").css('top', sensorVerticalPosition + "px");
-	$("#sensor_square").css('left', sensorHorizontalPosition + "px");
+	$("#sensor_square").css('top', "calc(50% - " + (height / 2) + "px)");
+	$("#sensor_square").css('left', "calc(70% - " + (width / 2) + "px)");
 
 }
 
@@ -52,29 +45,12 @@ function drawLens(diameter) {
 	$("#lens_circle").width(diameter);
 	$("#lens_circle").height(diameter);
 
-	//get midpoint position
-	midpoint = calculateMidPoint();
-
-	//calculate lens position
-	lensVerticalPosition = midpoint.vertical - (diameter / 2);
-	lensHorizontalPosition = midpoint.horizontal - (diameter / 2);
-
 	//apply new lens position
-	$("#lens_circle").css('top', lensVerticalPosition + "px");
-	$("#lens_circle").css('left', lensHorizontalPosition + "px");
+	$("#lens_circle").css('top', "calc(50% - " + (diameter / 2) + "px)");
+	$("#lens_circle").css('left', "calc(70% - " + (diameter / 2) + "px)");
 
 }
 
-function calculateMidPoint() {
-	//calculate vertical position
-	vertical = $(window).height() / 2;
-
-	//calculate horizontal position
-	horizontal = $(window).width() * 0.70;
-
-	//return values in object
-	return {vertical:vertical, horizontal:horizontal};
-}
 
 function hypotenuse(a,b) {
 	return Math.sqrt((a ** 2) + (b ** 2));
