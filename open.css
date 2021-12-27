@@ -1,0 +1,242 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3736749, 2019-03-20T08:44:16-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: TTNormsPro-Bold by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/bold/
+ * 
+ * Webfont: TTNormsPro-Italic by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/ital/
+ * 
+ * Webfont: TTNormsPro-Regular by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/regular/
+ * 
+ * Webfont: TTNormsPro-Medium by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/medium/
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3736749
+ * Licensed pageviews: 20,000
+ * Webfonts copyright: Copyright (c) 2016-2019 by TypeType. Designers Ivan Gladkikh, Pavel Emelyanov. Technical designers Vika Usmanova, Olexa Volochay, Nadyr Rakhimov. All rights reserved.
+ * 
+ * © 2019 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3904ad");
+  
+@font-face {font-family: 'TTNormsPro-Bold';src: url('webfonts/3904AD_3_0.eot');src: url('webfonts/3904AD_3_0.eot?#iefix') format('embedded-opentype'),url('webfonts/3904AD_3_0.woff2') format('woff2'),url('webfonts/3904AD_3_0.woff') format('woff'),url('webfonts/3904AD_3_0.ttf') format('truetype');}
+ 
+@font-face {font-family: 'TTNormsPro-Regular';src: url('webfonts/3904AD_B_0.eot');src: url('webfonts/3904AD_B_0.eot?#iefix') format('embedded-opentype'),url('webfonts/3904AD_B_0.woff2') format('woff2'),url('webfonts/3904AD_B_0.woff') format('woff'),url('webfonts/3904AD_B_0.ttf') format('truetype');}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'TTNormsPro-Regular';
+	color:#fafafa;
+	background: url('img/background.gif') repeat;
+	min-width: 1024px;
+}
+
+.question_container {
+	position: absolute;
+	left:10%;
+	top: 50px;
+	z-index: 1000;
+	overflow: hidden;
+	width: 90% !important;
+}
+
+.question_container div {
+	float: left;
+	clear:both;
+}
+
+.selector_header {
+	font-family: 'TTNormsPro-Bold';
+	font-size: 180px;
+	line-height: 140px;
+	text-transform: uppercase;
+	margin:0 0 50px 0;
+}
+
+#question_lens, #question_camera {
+	width: 2500px;
+}
+
+#question_lens span {
+	color: #e9562f;
+	border-bottom: 10px solid #e9562f;
+}
+
+#question_lens:hover, #question_camera:hover {
+	
+}
+
+#question_camera span {
+	color: #c27833;
+	border-bottom: 10px solid #c27833;
+}
+
+#rzlogotype {
+    position: absolute;
+    left:10%;
+    bottom:40px;
+    content: url("data:image/svg+xml;charset=UTF-8, <svg version='1.1' height='26px' width='32px' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 16 16' enable-background='new 0 0 16 16' xml:space='preserve'><path fill='rgb(250, 250, 250)' d='M11.5,8.9c1.9,0,3.5-1.6,3.5-3.4c0-2-1.5-3.6-3.8-3.6H9H7H0.6v1.4h5.8L0,14h7h1.5h0V7.7L14,14h2L11.5,8.9z M7,12.6H2.6L7,5.2V12.6z M9.1,5.6c0-1.2,1-2.2,2.2-2.2c1.2,0,2.2,1,2.2,2.2c0,1.2-1,2.2-2.2,2.2C10.1,7.8,9.1,6.8,9.1,5.6z'/></svg>");
+}
+
+#rzlogotype:hover{
+    content: url("data:image/svg+xml;charset=UTF-8, <svg version='1.1' height='26px' width='32px' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 16 16' enable-background='new 0 0 16 16' xml:space='preserve'><path fill='rgb(148, 157, 164)' d='M11.5,8.9c1.9,0,3.5-1.6,3.5-3.4c0-2-1.5-3.6-3.8-3.6H9H7H0.6v1.4h5.8L0,14h7h1.5h0V7.7L14,14h2L11.5,8.9z M7,12.6H2.6L7,5.2V12.6z M9.1,5.6c0-1.2,1-2.2,2.2-2.2c1.2,0,2.2,1,2.2,2.2c0,1.2-1,2.2-2.2,2.2C10.1,7.8,9.1,6.8,9.1,5.6z'/></svg>");
+}
+
+#lens_circle {
+	width: 480px;
+	height: 480px;
+	position: absolute;
+	left:calc(70% - 240px);
+	top:calc(50% - 240px);
+	border:2px solid #e9562f;
+	border-radius: 2000px;
+	background: url('img/background.gif') repeat;
+	z-index: 200;
+}
+
+#sensor_square {
+	width: 360px;
+	height: 240px;
+	position: absolute;
+	left:calc(70% - 180px);
+	top:calc(50% - 120px);
+	border:2px solid #c27833;
+	background: url('img/background.gif') repeat;
+	z-index: 300;
+}
+
+#sensor_line {
+	width:70%;
+	height: 2px;
+	position: absolute;
+	left:0;
+	top: calc(50% - 1px);
+	background-color: #c27833;
+	z-index: 250;
+}
+
+#lens_line {
+	width:70%;
+	height: 2px;
+	position: absolute;
+	left:0;
+	top: calc(50% - 127px);
+	background-color: #e9562f;
+	z-index: 100;
+}
+
+#answer_line {
+	width:12%;
+	height: 2px;
+	position: absolute;
+	left:0;
+	top: calc(50% + 125px);
+	background-color: #ce0e0e;
+	z-index: 100;
+}
+
+.answer_container {
+	position: absolute;
+	left:calc(10% - 18px);
+	top: calc(50% + 95px);
+	z-index: 1000;
+	border-radius: 8px;
+	border: 2px solid;
+	padding: 0 16px 0 0;
+}
+
+.answerYesBut {
+	background-color: #e2d544;
+	color:#161616;
+}
+
+.answerYes {
+	background-color: #98ff6d;
+	color:#161616;
+}
+
+.answerNo {
+	background-color: #ce0e0e;
+}
+
+#answerHeader {
+	width: 100%;
+	font-family: 'TTNormsPro-Bold';
+	font-size: 38px;
+	text-transform: uppercase;
+	padding: 20px 0 14px 16px;
+	line-height: 24px;
+}
+
+#answerHeader span {
+	font-size: 14px;
+	line-height: 10px;
+}
+
+.yellowBorder {
+	border-color: #e2d544;
+}
+
+.greenBorder {
+	border-color: #98ff6d;
+}
+
+.redBorder {
+	border-color: #ce0e0e;
+}
+
+
+
+.list_container {
+	margin:0 0 80px 0;
+	font-size: 18px;
+	width: 95%;
+}
+
+.list_container ul {
+    float: left;
+	clear:both;
+    padding:0;
+    list-style:none;
+    -moz-column-count: 5;
+    -moz-column-gap: 54px;
+    -webkit-column-count: 5;
+    -webkit-column-gap: 54px;
+    column-count: 5;
+    column-gap: 54px;
+}
+
+.list_container li {
+	margin:0 0 10px 0;
+}
+
+#lens_list {
+	color: #e9562f;
+}
+
+#camera_list {
+	color: #c27833;
+}
+#lens_list span:hover, #camera_list span:hover {
+	color: #f4f4f4;
+	cursor:pointer;
+}
+
+.list_selected {
+	border-top:none;
+	border-bottom:1px solid;
+}

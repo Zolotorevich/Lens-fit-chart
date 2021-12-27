@@ -224,7 +224,7 @@ var mountData = [
 		]
 	},
 	{
-		"listDisplayName":"Hasselblad 1000F (1600F)",
+		"listDisplayName":"Hasselblad 1000F",
 		"selectDisplayName":"Hasselblad 1000F",
 		"flange":82.1,
 		"sensor":[
@@ -306,7 +306,7 @@ var mountData = [
 	},
 	{
 		"listDisplayName":"Kowa Six (Super 66)",
-		"selectDisplayName":"Kowa Six (Super 66)",
+		"selectDisplayName":"Kowa Six",
 		"flange":79,
 		"sensor":[
 			["6 × 6",560,560]
@@ -314,7 +314,7 @@ var mountData = [
 	},
 	{
 		"listDisplayName":"Leica L (CL)",
-		"selectDisplayName":"Leica L (CL)",
+		"selectDisplayName":"Leica L",
 		"flange":20,
 		"sensor":[
 			["Full frame",360,240],
@@ -346,7 +346,15 @@ var mountData = [
 		]
 	},
 	{
-		"listDisplayName":"M39 × 26tpi (Leica LTM)",
+		"listDisplayName":"M37 × 0.75",
+		"selectDisplayName":"M37 × 0.75",
+		"flange":55,
+		"sensor":[
+			["Full frame",360,240]
+		]
+	},
+	{
+		"listDisplayName":"M39 × 26tpi (Leica)",
 		"selectDisplayName":"M39 × 26tpi",
 		"flange":28.8,
 		"sensor":[
@@ -354,8 +362,8 @@ var mountData = [
 		]
 	},
 	{
-		"listDisplayName":"M39 x 1 (Zenit SLR)",
-		"selectDisplayName":"M39 x 1",
+		"listDisplayName":"M39 × 1 (Zenit SLR)",
+		"selectDisplayName":"M39 × 1",
 		"flange":45.2,
 		"sensor":[
 			["Full frame",360,240]
@@ -673,7 +681,7 @@ var mountData = [
 		]
 	},
 	{
-		"listDisplayName":"Salyut (Kiev 88, Zenit-80)",
+		"listDisplayName":"Salyut (Kiev 88)",
 		"selectDisplayName":"Salyut",
 		"flange":82.1,
 		"sensor":[
@@ -723,8 +731,8 @@ var mountData = [
 		]
 	},
 	{
-		"listDisplayName":"Sony Alpha",
-		"selectDisplayName":"Sony Alpha",
+		"listDisplayName":"Sony A",
+		"selectDisplayName":"Sony A",
 		"flange":44.5,
 		"sensor":[
 			["Full frame",360,240],
@@ -751,7 +759,7 @@ var mountData = [
 	},
 	{
 		"listDisplayName":"Start (Soviet SLR)",
-		"selectDisplayName":"Start (Soviet SLR)",
+		"selectDisplayName":"Start",
 		"flange":42,
 		"sensor":[
 			["Full frame",360,240]
@@ -793,6 +801,14 @@ var mountData = [
 		"listDisplayName":"YS mount",
 		"selectDisplayName":"YS mount",
 		"flange":55,
+		"sensor":[
+			["Full frame",360,240]
+		]
+	},
+	{
+		"listDisplayName":" Zeiss ZM",
+		"selectDisplayName":" Zeiss ZM",
+		"flange":27.8,
 		"sensor":[
 			["Full frame",360,240]
 		]

@@ -1,57 +1,101 @@
-//Function calculates diameter for lens circle
-function diameterCalculation(width,height) {
-	console.log('diameterCalculation(' + width + ', ' + height + ')');
+//Global variables for selected options
+var selectedLens;
+var selectedCamera;
 
-	//calculate hypotenuse
-	hypotenuse = Math.sqrt((width ** 2) + (height ** 2));
-	console.log('hypotenuse = ' + hypotenuse);
+//events handlers
+$(document).ready(function(){
 
-	//add margin
-	hypotenuse += hypotenuse / 10;
-	console.log('hypotenuse + 10% = ' + hypotenuse);
+	//click on lens in list
+	$('#lens_list').on('click', 'span', function() {
+		//update global value
+		selectedLens = $(this).attr( "data-id" );
+		// console.log('selectedLens = ' + selectedLens);
 
-	//return round result
-	console.log('diameterCalculation result = ' + Math.round(hypotenuse));
-	return (Math.round(hypotenuse));
-}
+		//update selector
+		$('#question_lens span').text( mountData[selectedLens].selectDisplayName );
 
-function drawSensor(width,height) {
-	//check if values are valid
-	if (isNaN(width) || isNaN(height) || width < 0 || height < 0) {
-		//invalid values
-		console.log('ERROR: drawSensor gets invalid values:' + 'width = ' + width + '; height = ' + height);
-		return false;
+		//check choise
+		checkChoice();
+	});
+
+	//click on camera in list
+	$('#camera_list').on('click', 'span', function() {
+		//update global value
+		selectedCamera = $(this).attr( "data-id" );
+		// console.log('selectedCamera = ' + selectedCamera);
+
+		//update selector
+		$('#question_camera span').text( mountData[selectedCamera].selectDisplayName );
+
+		//check choise
+		checkChoice();
+	});
+});
+
+//checking if user choose lens amd camera
+function checkChoice() {
+	if (selectedCamera == null) {
+		//scroll to camera select
+		$([document.documentElement, document.body]).animate({
+			scrollTop: $("#question_camera").offset().top - 50
+		}, 1000);
+
+	} else if (selectedLens == null) {
+		//scroll to lens select
+		$([document.documentElement, document.body]).animate({
+			scrollTop: $("#question_lens").offset().top - 50
+		}, 1000);
+
+	} else {
+		//compare flanges
+		compareFlange();
 	}
-	
-	//change sensor size
-	$("#sensor_square").width(width);
-	$("#sensor_square").height(height);
-	
-	//apply new sensor position
-	$("#sensor_square").css('top', "calc(50% - " + (height / 2) + "px)");
-	$("#sensor_square").css('left', "calc(70% - " + (width / 2) + "px)");
-
 }
 
-function drawLens(diameter) {
-	//check if value are valid
-	if (isNaN(diameter) || diameter < 0) {
-		//invalid value
-		console.log('ERROR: drawLens gets invalid value: ' + 'diameter = ' + diameter);
-		return false;
+function compareFlange() {
+	//compare flanges
+	flangesDiff = mountData[selectedLens].flange - mountData[selectedCamera].flange;
+
+	//adapter tolerance in mm
+	flangeTolerance = 2;
+
+	//check if difference positiove
+	if (flangesDiff > 0) {
+		console.log('YES');
+
+		//check if difference in tolerance
+		if (flangesDiff < flangeTolerance) {
+			console.log('YES, BUT');
+		}
+	} else {
+		//check if same mounts selected
+		if (selectedLens == selectedCamera) {
+			console.log('SAME');
+		}
+
+		//check Minolta and Sony Alpha
+		else if (
+			mountData[selectedCamera].selectDisplayName == 'Sony A'
+			&& mountData[selectedLens].selectDisplayName == 'Minolta A'
+			) {
+			console.log('SAME');
+		}
+
+		else if (
+			mountData[selectedCamera].selectDisplayName == 'Minolta A'
+			&& mountData[selectedLens].selectDisplayName == 'Sony A'
+			) {
+			console.log('SAME');
+		}
+
+		else {
+			console.log('NO');
+		}
+
 	}
 
-	//change lens size
-	$("#lens_circle").width(diameter);
-	$("#lens_circle").height(diameter);
+	//display crop (optional)
 
-	//apply new lens position
-	$("#lens_circle").css('top', "calc(50% - " + (diameter / 2) + "px)");
-	$("#lens_circle").css('left', "calc(70% - " + (diameter / 2) + "px)");
-
-}
-
-
-function hypotenuse(a,b) {
-	return Math.sqrt((a ** 2) + (b ** 2));
+	//draw graphics
+	
 }
