@@ -83,6 +83,9 @@ function drawTransitionToList() {
 	//change position of background graphics
 	$('#background_graphics_sensors').css('top', '1200px');
 
+	//increase back graphics lens height, so it's not crop
+	$('#background_graphics_lens').css('height', '105%');
+
 	//hide logotype
 	$('#rzlogotype').css('display', 'none');
 
@@ -128,6 +131,9 @@ function drawTransitionToSelect() {
 	//change position of background graphics
 	$('#background_graphics_sensors').css('top', '0');
 
+	//decrease back graphics lens height
+	$('#background_graphics_lens').css('height', '100%');
+
 	//display logotype
 	$('#rzlogotype').css('display', 'block');
 
@@ -153,14 +159,30 @@ function drawTransitionToSelect() {
 	//change sensor line size
 	$('#sensor_line').css('width', 'calc(70% - ' + (maxSensorWidth / 2) + 'px)');
 
-	//calculate margin for lens line
-	lensLineMargin = Math.sqrt(((maxLensDiameter / 2) ** 2) - (124 ** 2));
-	//vertical margin between lens is 124px
-	//Math.sqrt((a ** 2) + (b ** 2))
 
-	//change lens line size
-	$('#lens_line').css('width', 'calc(70% + 2px - ' + lensLineMargin + 'px)');
-	
+	//check if lens radius less than margin betwee lines
+	//note: vertical margin between lines is 124px
+	if ((maxLensDiameter / 2) < 124) {
+		//change lens line size
+		$('#lens_line').css('width', 'calc(70% + 2px)');
+
+		//change height of additional line
+		$('#lens_line_vertical').css('height', 'calc(126px - ' + (maxLensDiameter / 2) + 'px)');
+
+		//display additional line
+		$('#lens_line_vertical').css('display', 'block');
+		
+	} else if ((maxLensDiameter / 2) == 124) {
+		//change lens line size
+		$('#lens_line').css('width', 'calc(70% - 124px)');
+	} else {
+		//calculate margin for lens line
+		lensLineMargin = Math.round(Math.sqrt(((maxLensDiameter / 2) ** 2) - (124 ** 2)));
+
+		//change lens line size
+		$('#lens_line').css('width', 'calc(70% + 6px - ' + lensLineMargin + 'px)');
+	}
+
 	//hide lists
 	$('.list_container').css('display', 'none');
 
@@ -197,10 +219,6 @@ function drawAnswer(type,title,message) {
 }
 
 
-
-
-
-
 //draw sensors
 function drawSensor() {
 	//clear sensors
@@ -229,11 +247,7 @@ function drawSensor() {
 
 }
 
-
-
-
-
-
+//draw lens cicles
 function drawLens() {
 	//clear lens
 	$('#lens_container').html('');
@@ -249,7 +263,8 @@ function drawLens() {
 		sensorHeight = mountData[selectedLens].sensor[i][2];
 
 		//find lens diameter
-		lensDiameter = Math.sqrt((sensorWidth ** 2) + (sensorHeight ** 2)) + 10; // +10px
+		lensDiameter = Math.round(Math.sqrt((sensorWidth ** 2) + (sensorHeight ** 2))) + 10; // +10px
+		console.log(sensorName + ' lensDiameter = ' + lensDiameter);
 
 		//check if its bigger diameter
 		if (lensDiameter > maxLensDiameter) {
@@ -261,24 +276,5 @@ function drawLens() {
 
 	}
 
-		
-
 }
 
-
-//Function calculates diameter for lens circle
-function diameterCalculation(width,height) {
-	console.log('diameterCalculation(' + width + ', ' + height + ')');
-
-	//calculate hypotenuse
-	hypotenuse = Math.sqrt((width ** 2) + (height ** 2));
-	console.log('hypotenuse = ' + hypotenuse);
-
-	//add margin
-	hypotenuse += hypotenuse / 10;
-	console.log('hypotenuse + 10% = ' + hypotenuse);
-
-	//return round result
-	console.log('diameterCalculation result = ' + Math.round(hypotenuse));
-	return (Math.round(hypotenuse));
-}

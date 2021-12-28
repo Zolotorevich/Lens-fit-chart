@@ -45,7 +45,8 @@ body {
 	padding: 0;
 	font-family: 'TTNormsPro-Regular';
 	color:#fafafa;
-	background: url('img/background.gif') repeat;
+	background-color:#0f0f10;
+	background: url('background.gif') repeat;
 	min-width: 1024px;
 }
 
@@ -157,10 +158,7 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	/* left:calc(70% - 240px);
-	top:calc(50% - 240px); */
-	/* background: url('img/background.gif') repeat; */
-	z-index: 200;
+	z-index: 300;
 }
 
 #lens_container div {
@@ -176,7 +174,7 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	z-index: 300;
+	z-index: 200;
 }
 
 #sensors_container div {
@@ -204,6 +202,18 @@ body {
 	background-color: #e9562f;
 	z-index: 100;
 	transition: all var(--tr-time);
+}
+
+#lens_line_vertical {
+	width:2px;
+	height: 2px;
+	position: absolute;
+	left:70%;
+	top: calc(50% - 126px);
+	background-color: #e9562f;
+	z-index: 100;
+	display: none;
+	/* transition: all var(--tr-time); */
 }
 
 /* ANSWER */
@@ -244,6 +254,16 @@ body {
 }
 
 /* BACKGROUND GRAPHICS */
+#background_graphics_container {
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 300;
+}
+
 #background_graphics_sensors {
 	position: absolute;
 	top: 0;
@@ -358,8 +378,58 @@ body {
 
 
 .graph_full_frame_lens {
-	width: 480px;
-	height: 480px;
-	left:calc(70% - 240px);
-	top:calc(50% - 240px);
+	width: 443px;
+	height: 443px;
+	left:calc(70% - 221.5px);
+	top:calc(50% - 221.5px);
+}
+
+.graph_6_by_6_lens {
+	width: 802px;
+	height: 802px;
+	left:calc(70% - 401px);
+	top:calc(50% - 401px);
+}
+
+.graph_6_by_45_lens {
+	width: 710px;
+	height: 710px;
+	left:calc(70% - 355px);
+	top:calc(50% - 355px);
+}
+
+.graph_45_by_30_lens {
+	width: 551px;
+	height: 551px;
+	left:calc(70% - 275.5px);
+	top:calc(50% - 275.5px);
+}
+
+.graph_280_by_280_lens {
+	width: 406px;
+	height: 406px;
+	left:calc(70% - 203px);
+	top:calc(50% - 203px);
+}
+
+.graph_16_mm_lens {
+	width: 136px;
+	height: 136px;
+	left:calc(70% - 68px);
+	top:calc(50% - 68px);
+}
+
+
+.graph_110_lens {
+	width: 224px;
+	height: 224px;
+	left:calc(70% - 112px);
+	top:calc(50% - 112px);
+}
+
+.graph_aps_c_lens {
+	width: 298px;
+	height: 298px;
+	left:calc(70% - 149px);
+	top:calc(50% - 149px);
 }
