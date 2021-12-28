@@ -1,0 +1,532 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3736749, 2019-03-20T08:44:16-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: TTNormsPro-Bold by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/bold/
+ * 
+ * Webfont: TTNormsPro-Italic by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/ital/
+ * 
+ * Webfont: TTNormsPro-Regular by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/regular/
+ * 
+ * Webfont: TTNormsPro-Medium by TypeType
+ * URL: https://www.myfonts.com/fonts/type-type/tt-norms/medium/
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3736749
+ * Licensed pageviews: 20,000
+ * Webfonts copyright: Copyright (c) 2016-2019 by TypeType. Designers Ivan Gladkikh, Pavel Emelyanov. Technical designers Vika Usmanova, Olexa Volochay, Nadyr Rakhimov. All rights reserved.
+ * 
+ * © 2019 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3904ad");
+  
+@font-face {font-family: 'TTNormsPro-Bold';src: url('webfonts/3904AD_3_0.eot');src: url('webfonts/3904AD_3_0.eot?#iefix') format('embedded-opentype'),url('webfonts/3904AD_3_0.woff2') format('woff2'),url('webfonts/3904AD_3_0.woff') format('woff'),url('webfonts/3904AD_3_0.ttf') format('truetype');}
+ 
+@font-face {font-family: 'TTNormsPro-Regular';src: url('webfonts/3904AD_B_0.eot');src: url('webfonts/3904AD_B_0.eot?#iefix') format('embedded-opentype'),url('webfonts/3904AD_B_0.woff2') format('woff2'),url('webfonts/3904AD_B_0.woff') format('woff'),url('webfonts/3904AD_B_0.ttf') format('truetype');}
+
+:root {
+	--tr-time: .5s;
+  }
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'TTNormsPro-Regular';
+	color:#fafafa;
+	background-color:#0f0f10;
+	background: url('background.gif') repeat;
+	min-width: 1024px;
+}
+
+.question_container {
+	position: absolute;
+	left:10%;
+	top: calc(50% - 229px);
+	width:460px;
+	z-index: 1000;
+	overflow: hidden;
+	width: 90% !important;
+}
+
+.question_container div {
+	float: left;
+	clear:both;
+}
+
+.selector_header {
+	font-family: 'TTNormsPro-Bold';
+	font-size: 38px;
+	line-height: 40px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin:0 0 23px 0;
+	transition: all var(--tr-time);
+}
+
+#question_lens, #question_camera {
+	width: 2500px;
+}
+
+#question_lens span {
+	color: #e9562f;
+}
+
+#question_camera span {
+	color: #c27833;
+}
+
+.white_hover_pointer:hover {
+	color:#fafafa !important;
+	cursor: pointer;
+}
+
+/* LISTS */
+.list_container {
+	margin:0 0 80px 0;
+	font-size: 18px;
+	width: 95%;
+	display: none;
+}
+
+.list_container ul {
+    float: left;
+	clear:both;
+    padding:0;
+    list-style:none;
+    -moz-column-count: 5;
+    -moz-column-gap: 54px;
+    -webkit-column-count: 5;
+    -webkit-column-gap: 54px;
+    column-count: 5;
+    column-gap: 54px;
+}
+
+.list_container li {
+	margin:0 0 10px 0;
+}
+
+#lens_list {
+	color: #e9562f;
+}
+
+#camera_list {
+	color: #c27833;
+}
+
+#lens_list span:hover, #camera_list span:hover {
+	color: #f4f4f4;
+	cursor:pointer;
+	opacity: 1;
+}
+
+.list_selected {
+	border-top:none;
+	border-bottom:1px solid;
+}
+
+
+/* RZ LOGO */
+#rzlogotype {
+    position: absolute;
+    right:40px;
+    bottom:40px;
+	z-index: 1000;
+	opacity:.5;
+    content: url("data:image/svg+xml;charset=UTF-8, <svg version='1.1' height='26px' width='32px' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 16 16' enable-background='new 0 0 16 16' xml:space='preserve'><path fill='rgb(250, 250, 250)' d='M11.5,8.9c1.9,0,3.5-1.6,3.5-3.4c0-2-1.5-3.6-3.8-3.6H9H7H0.6v1.4h5.8L0,14h7h1.5h0V7.7L14,14h2L11.5,8.9z M7,12.6H2.6L7,5.2V12.6z M9.1,5.6c0-1.2,1-2.2,2.2-2.2c1.2,0,2.2,1,2.2,2.2c0,1.2-1,2.2-2.2,2.2C10.1,7.8,9.1,6.8,9.1,5.6z'/></svg>");
+}
+
+#rzlogotype:hover{
+	opacity:1;
+    content: url("data:image/svg+xml;charset=UTF-8, <svg version='1.1' height='26px' width='32px' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 16 16' enable-background='new 0 0 16 16' xml:space='preserve'><path fill='rgb(250, 250, 250)' d='M11.5,8.9c1.9,0,3.5-1.6,3.5-3.4c0-2-1.5-3.6-3.8-3.6H9H7H0.6v1.4h5.8L0,14h7h1.5h0V7.7L14,14h2L11.5,8.9z M7,12.6H2.6L7,5.2V12.6z M9.1,5.6c0-1.2,1-2.2,2.2-2.2c1.2,0,2.2,1,2.2,2.2c0,1.2-1,2.2-2.2,2.2C10.1,7.8,9.1,6.8,9.1,5.6z'/></svg>");
+}
+
+/* SENSOR AND LENS DRAW */
+#lens_container {
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 300;
+}
+
+#lens_container div {
+	border:2px solid #e9562f;
+	border-radius: 2000px;
+	position: absolute;
+}
+
+#sensors_container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 200;
+}
+
+#sensors_container div {
+	border:2px solid #c27833;
+	position: absolute;
+}
+
+#graphics_labels_container {
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:400;
+}
+
+.graphics_labels {
+	width:400px;
+	position: absolute;
+	text-align:center;
+	left:calc(70% - 200px);
+}
+
+#sensor_line {
+	width:calc(10% + 247px);
+	height: 2px;
+	position: absolute;
+	left:0;
+	top: calc(50% - 1px);
+	background-color: #c27833;
+	z-index: 100;
+	transition: all var(--tr-time);
+}
+
+#lens_line {
+	width:calc(10% + 204px);
+	height: 2px;
+	position: absolute;
+	left:0;
+	top: calc(50% - 127px);
+	background-color: #e9562f;
+	z-index: 100;
+	transition: all var(--tr-time);
+}
+
+#lens_line_vertical {
+	width:2px;
+	height: 2px;
+	position: absolute;
+	left:70%;
+	top: calc(50% - 126px);
+	background-color: #e9562f;
+	z-index: 100;
+	display: none;
+	/* transition: all var(--tr-time); */
+}
+
+/* ANSWER */
+#answer_line {
+	width:12%;
+	height: 2px;
+	position: absolute;
+	left:0;
+	top: calc(50% + 125px);
+	background-color: #ce0e0e;
+	z-index: 100;
+	display: none;
+}
+
+#answer_container {
+	position: absolute;
+	left:calc(10% - 18px);
+	top: calc(50% + 95px);
+	z-index: 1000;
+	border-radius: 8px;
+	padding: 0 16px 0 0;
+	display: none;
+}
+
+
+#answerHeader {
+	width: 100%;
+	font-family: 'TTNormsPro-Bold';
+	font-size: 38px;
+	text-transform: uppercase;
+	padding: 20px 0 14px 16px;
+	line-height: 24px;
+}
+
+#answerHeader span {
+	font-size: 14px;
+	line-height: 10px;
+}
+
+#answerCrop {
+	text-transform: uppercase;
+	font-family: 'TTNormsPro-Bold';
+	font-size: 14px;
+	line-height: 25px;
+	margin: 12px 0 12px 16px;
+}
+
+.lens_label, .sensor_label {
+	text-transform: uppercase;
+	font-family: 'TTNormsPro-Bold';
+	font-size: 14px;
+	display: inline;
+	padding: 2px 6px 1px 6px;
+}
+
+.lens_label {
+	background-color: #e9562f;
+	color:#fafafa;
+}
+
+.sensor_label {
+	background-color: #c27833;
+	color: #0f0f10;
+}
+
+/* BACKGROUND GRAPHICS */
+#background_graphics_container {
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 300;
+}
+
+#background_graphics_sensors {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	overflow: hidden;
+	opacity: .08;
+	transition: all var(--tr-time);
+}
+
+#background_graphics_sensors div {
+	border:2px solid #c27833;
+	position: absolute;
+}
+
+.graph_full_frame {
+	width: 360px;
+	height: 240px;
+	left:calc(70% - 180px);
+	top:calc(50% - 120px);
+}
+
+.graph_6_by_7 {
+	width: 700px;
+	height: 560px;
+	left:calc(70% - 350px);
+	top:calc(50% - 280px);
+}
+
+.graph_6_by_6 {
+	width: 560px;
+	height: 560px;
+	left:calc(70% - 280px);
+	top:calc(50% - 280px);
+}
+
+.graph_6_by_45 {
+	width: 560px;
+	height: 420px;
+	left:calc(70% - 280px);
+	top:calc(50% - 210px);
+}
+
+.graph_45_by_30 {
+	width: 450px;
+	height: 300px;
+	left:calc(70% - 225px);
+	top:calc(50% - 150px);
+}
+
+.graph_280_by_280 {
+	width: 280px;
+	height: 280px;
+	left:calc(70% - 140px);
+	top:calc(50% - 140px);
+}
+
+.graph_16_mm {
+	width: 102px;
+	height: 74px;
+	left:calc(70% - 51px);
+	top:calc(50% - 37px);
+}
+
+.graph_xpan {
+	width: 650px;
+	height: 240px;
+	left:calc(70% - 325px);
+	top:calc(50% - 120px);
+}
+
+.graph_110 {
+	width: 170px;
+	height: 130px;
+	left:calc(70% - 85px);
+	top:calc(50% - 65px);
+}
+
+.graph_1_2_inc {
+	width: 64px;
+	height: 48px;
+	left:calc(70% - 32px);
+	top:calc(50% - 24px);
+}
+
+.graph_aps_c {
+	width: 240px;
+	height: 160px;
+	left:calc(70% - 120px);
+	top:calc(50% - 80px);
+}
+
+
+#background_graphics_lens {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	overflow: hidden;
+	opacity: .08;
+}
+
+#background_graphics_lens div {
+	border:2px solid #e9562f;
+	border-radius: 2000px;
+	position: absolute;
+}
+
+
+.graph_full_frame_lens {
+	width: 443px;
+	height: 443px;
+	left:calc(70% - 221.5px);
+	top:calc(50% - 221.5px);
+}
+
+.graph_6_by_6_lens {
+	width: 802px;
+	height: 802px;
+	left:calc(70% - 401px);
+	top:calc(50% - 401px);
+}
+
+.graph_6_by_45_lens {
+	width: 710px;
+	height: 710px;
+	left:calc(70% - 355px);
+	top:calc(50% - 355px);
+}
+
+.graph_45_by_30_lens {
+	width: 551px;
+	height: 551px;
+	left:calc(70% - 275.5px);
+	top:calc(50% - 275.5px);
+}
+
+.graph_280_by_280_lens {
+	width: 406px;
+	height: 406px;
+	left:calc(70% - 203px);
+	top:calc(50% - 203px);
+}
+
+.graph_16_mm_lens {
+	width: 136px;
+	height: 136px;
+	left:calc(70% - 68px);
+	top:calc(50% - 68px);
+}
+
+
+.graph_110_lens {
+	width: 224px;
+	height: 224px;
+	left:calc(70% - 112px);
+	top:calc(50% - 112px);
+}
+
+.graph_aps_c_lens {
+	width: 298px;
+	height: 298px;
+	left:calc(70% - 149px);
+	top:calc(50% - 149px);
+}
+
+
+/* 404 ERROR */
+.error404_container {
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.error404 {
+	font-family: 'TTNormsPro-Bold';
+	font-size: 180px;
+	line-height: 190px;
+	letter-spacing: 10px;
+	text-transform: uppercase;
+	margin:100px 0 0 10%;
+	width:2000px;
+}
+
+.error404 span {
+	color: #ce0e0e;
+}
+
+.error404_line {
+	width:100%;
+	height: 10px;
+	position: absolute;
+	left:0;
+	top: 450px;
+	background-color: #ce0e0e;
+}
+
+.error404_link {
+	font-family: 'TTNormsPro-Bold';
+	font-size: 70px;
+	line-height: 190px;
+	letter-spacing: 10px;
+	text-transform: uppercase;
+	margin:0 0 50px 10%;
+}
+
+.error404_link a:link, .error404_link a:visited {
+	color:#f4f4f4;
+	text-decoration: none;
+	opacity:.5;
+}
+
+.error404_link a:hover {
+	opacity:1;
+}

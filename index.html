@@ -2,9 +2,70 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Lens fit chart</title>
+	<title>Lens Fit Chart</title>
+	<link rel="stylesheet" href="main.css">
+	<script src="jquery-3.6.0.min.js"></script>
+	<script src="main.js"></script>
+	<script src="draw.js"></script>
+	<script src="data.js"></script>
 </head>
 <body>
-	Hello, darkness world!
+	<div class="question_container">
+		<div class="selector_header">Will</div>
+
+		<div class="selector_header" id="question_lens"><span class="white_hover_pointer">This lens</span></div>
+		<div class="list_container"><ul id="lens_list"></ul></div>
+
+		<div class="selector_header">Fit on</div>
+
+		<div class="selector_header" id="question_camera"><span class="white_hover_pointer">My camera</span></div>
+		<div class="list_container"><ul id="camera_list"></ul></div>
+
+		<div class="selector_header">?</div>
+	</div>
+
+	<div id="lens_line"></div>
+	<div id="lens_line_vertical"></div>
+	<div id="sensor_line"></div>
+
+	<div id="answer_container">
+		<div id="answerHeader"></div>
+		<div id="answerCrop"></div>
+	</div>
+
+	<div id="answer_line"></div>
+	
+	<div id="lens_container"></div>
+	<div id="sensors_container"></div>
+
+	<div id="graphics_labels_container"></div>
+
+	<div id="background_graphics_sensors">
+		<div class="graph_full_frame"></div>
+		<div class="graph_aps_c"></div>
+		<div class="graph_6_by_45"></div>
+		<div class="graph_6_by_6"></div>
+		<div class="graph_6_by_7"></div>
+		<div class="graph_45_by_30"></div>
+		<div class="graph_280_by_280"></div>
+		<div class="graph_16_mm"></div>
+		<div class="graph_xpan"></div>
+		<div class="graph_110"></div>
+		<div class="graph_1_2_inc"></div>
+	</div>
+
+	<div id="background_graphics_lens">
+		<div class="graph_full_frame_lens"></div>
+		<div class="graph_aps_c_lens"></div>
+		<div class="graph_6_by_45_lens"></div>
+		<div class="graph_6_by_6_lens"></div>
+		<div class="graph_45_by_30_lens"></div>
+		<div class="graph_280_by_280_lens"></div>
+		<div class="graph_16_mm_lens"></div>
+		<div class="graph_110_lens"></div>
+	</div>
+
+
+	<a href="http://www.zolotorevich.com/"><div id="rzlogotype"></div></a>
 </body>
 </html>

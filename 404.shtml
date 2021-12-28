@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lens Fit Chart</title>
+	<link rel="stylesheet" href="main.css?">
+	
+</head>
+<body>
+	<div class="error404_container">
+		<div class="error404">
+			error 404<br/>
+			<span>Page not found</span><br/>
+		</div>
+		<div class="error404_link">
+			<a href="/">← Back to start</a>
+		</div>
+	</div>
+	<div class="error404_line"></div>
+
+</body>
+</html>
