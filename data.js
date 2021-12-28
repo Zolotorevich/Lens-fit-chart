@@ -488,7 +488,7 @@ var mountData = [
 		"flange":46.5,
 		"sensor":[
 			["Full frame",360,240],
-			["APS-C (DX)",235,156]
+			["APS-C",235,156]
 		]
 	},
 	{
@@ -505,7 +505,7 @@ var mountData = [
 		"flange":16,
 		"sensor":[
 			["Full frame",360,240],
-			["APS-C (DX)",235,156]
+			["APS-C",235,156]
 		]
 	},
 	{

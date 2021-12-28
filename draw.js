@@ -109,6 +109,9 @@ function drawTransitionToList() {
 	$('#sensor_line').css('height', '10px');
 	$('#sensor_line').css('top', '1688px');
 	$('#sensor_line').css('width', '100%');
+
+	//hide additional line
+	$('#lens_line_vertical').css('display', 'none');
 	
 	//display lists
 	$('.list_container').css('display', 'block');
@@ -180,7 +183,7 @@ function drawTransitionToSelect() {
 		lensLineMargin = Math.round(Math.sqrt(((maxLensDiameter / 2) ** 2) - (124 ** 2)));
 
 		//change lens line size
-		$('#lens_line').css('width', 'calc(70% + 6px - ' + lensLineMargin + 'px)');
+		$('#lens_line').css('width', 'calc(70% + 5px - ' + lensLineMargin + 'px)');
 	}
 
 	//hide lists
@@ -242,7 +245,11 @@ function drawSensor() {
 		//draw sensor
 		$('#sensors_container').append('<div style="width:' + sensorWidth + 'px; height:' + sensorHeight + 'px; left:calc(70% - ' + (sensorWidth / 2) + 'px); top:calc(50% - ' + (sensorHeight / 2) + 'px);"></div>');
 
-		//TODO draw sensor names
+		//draw sensor names
+		// $('#graphics_labels').append('<div class="sensor_label">' + sensorName + '</div>');
+		
+
+
 	}
 
 }
@@ -258,13 +265,12 @@ function drawLens() {
 	//get senesors data
 	for (i = 0; i < mountData[selectedLens].sensor.length; i++) {
 
-		sensorName = mountData[selectedLens].sensor[i][0]
+		sensorName = mountData[selectedLens].sensor[i][0];
 		sensorWidth = mountData[selectedLens].sensor[i][1];
 		sensorHeight = mountData[selectedLens].sensor[i][2];
 
 		//find lens diameter
 		lensDiameter = Math.round(Math.sqrt((sensorWidth ** 2) + (sensorHeight ** 2))) + 10; // +10px
-		console.log(sensorName + ' lensDiameter = ' + lensDiameter);
 
 		//check if its bigger diameter
 		if (lensDiameter > maxLensDiameter) {
@@ -273,6 +279,9 @@ function drawLens() {
 
 		//draw lens circle
 		$('#lens_container').append('<div style="width:' + lensDiameter + 'px; height:' + lensDiameter + 'px; left:calc(70% - ' + (lensDiameter / 2) + 'px); top:calc(50% - ' + (lensDiameter / 2) + 'px);"></div>');
+
+		//TODO draw lens names
+
 
 	}
 

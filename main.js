@@ -138,6 +138,9 @@ function compareFlange() {
 			//No
 			drawAnswer('red','No',"lens flange shorter than camera’s");
 		}
+
+		//hide crop
+		$('#answerCrop').css('display','none');
 	}
 
 	//draw sensor and lens
@@ -206,9 +209,59 @@ function checkEqualsMounts() {
 
 //check if we need crop and display it
 function checkCrop() {
-	//TODO if we have APS-C and FF, then we don't need crop
-	//also if sensors sizes equals
-	//display crop in #answerCrop
+	//hide crop
+	$('#answerCrop').css('display','none');
 
-	console.log('checkCrop');
+	//clear crop
+	$('#answerCrop').html('Crop factor<br/>');
+
+	//cycle throug lens sizes
+	for (i = 0; i < mountData[selectedLens].sensor.length; i++) {
+		//get lens data
+		lensName = mountData[selectedLens].sensor[i][0];
+		lensWidth = mountData[selectedLens].sensor[i][1];
+		lensHeight = mountData[selectedLens].sensor[i][2];
+
+		//calculate lens diameter
+		lensDiameter = Math.round(Math.sqrt((lensWidth ** 2) + (lensHeight ** 2)));
+
+		//cycle throug sensors
+		for (k = 0; k < mountData[selectedCamera].sensor.length; k++) {
+			//get camera data
+			sensorName = mountData[selectedCamera].sensor[k][0];
+			sensorWidth = mountData[selectedCamera].sensor[k][1];
+			sensorHeight = mountData[selectedCamera].sensor[k][2];
+
+			//calculate camera sensor diameter
+			sensorDiameter = Math.round(Math.sqrt((sensorWidth ** 2) + (sensorHeight ** 2)));
+
+			//check if sensors have equal names
+			equalNames = lensName == sensorName || lensName.includes(sensorName);
+
+			//check if sensors have equals sizes
+			equalSize = lensWidth == sensorWidth && lensHeight == sensorHeight;
+
+			//check if lens cover sensor
+			lensCoverSensor = lensDiameter >= sensorDiameter;
+
+			//check if lens FF and sensor APS-C
+			ffOnAps = lensName == 'Full frame' && sensorName == 'APS-C';
+
+			//check if we need crop
+			if (!equalNames && !equalSize && lensCoverSensor && !ffOnAps) {
+				//calculate crop
+				cropValue = Math.round((lensDiameter / sensorDiameter) * 10) / 10;
+
+				//add crop
+				$('#answerCrop').append('<div class="lens_label">' + lensName + '</div>&nbsp;&nbsp;+&nbsp;&nbsp;<div class="sensor_label">' + sensorName + '</div>&nbsp;&nbsp;=&nbsp;&nbsp;' + cropValue + '<br/>');
+
+				//display crop container
+				$('#answerCrop').css('display', 'block');
+
+			}
+
+		}
+
+	}
+
 }

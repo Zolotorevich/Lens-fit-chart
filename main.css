@@ -253,6 +253,32 @@ body {
 	line-height: 10px;
 }
 
+#answerCrop {
+	text-transform: uppercase;
+	font-family: 'TTNormsPro-Bold';
+	font-size: 14px;
+	line-height: 25px;
+	margin: 12px 0 12px 16px;
+}
+
+.lens_label, .sensor_label {
+	text-transform: uppercase;
+	font-family: 'TTNormsPro-Bold';
+	font-size: 14px;
+	display: inline;
+	padding: 2px 6px 1px 6px;
+}
+
+.lens_label {
+	background-color: #e9562f;
+	color:#fafafa;
+}
+
+.sensor_label {
+	background-color: #c27833;
+	color: #0f0f10;
+}
+
 /* BACKGROUND GRAPHICS */
 #background_graphics_container {
 	position: absolute;
