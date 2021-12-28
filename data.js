@@ -718,7 +718,7 @@ var mountData = [
 		"selectDisplayName":"Sigma SA",
 		"flange":44,
 		"sensor":[
-			["Full frame",360,240]
+			["Full frame",360,240],
 			["APS-C",267,179]
 		]
 	},
@@ -806,8 +806,8 @@ var mountData = [
 		]
 	},
 	{
-		"listDisplayName":" Zeiss ZM",
-		"selectDisplayName":" Zeiss ZM",
+		"listDisplayName":"Zeiss ZM",
+		"selectDisplayName":"Zeiss ZM",
 		"flange":27.8,
 		"sensor":[
 			["Full frame",360,240]

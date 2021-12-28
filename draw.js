@@ -1,3 +1,8 @@
+//values for lines to sensor square and circle
+var maxSensorWidth;
+var maxLensDiameter;
+
+
 //generate lists of lens and cameras
 function generateLists() {
 	//get all data one by one
@@ -16,21 +21,48 @@ function generateLists() {
 	$( "#camera_list" ).append('<li>&nbsp;</li>');
 }
 
-//Function calculates diameter for lens circle
-function diameterCalculation(width,height) {
-	console.log('diameterCalculation(' + width + ', ' + height + ')');
+//regenerate camera or lens lists
+function reGenerateList(listType) {
+	if (listType == 'lens_list') {
+		//clear lens list
+		$( "#lens_list" ).html('');
 
-	//calculate hypotenuse
-	hypotenuse = Math.sqrt((width ** 2) + (height ** 2));
-	console.log('hypotenuse = ' + hypotenuse);
+		//regenerate lens list
+		for (i = 0; i < mountData.length; i++) {
+			//check flanges
+			if (mountData[i].flange >= mountData[selectedCamera].flange) {
+				//append normal
+				$( "#lens_list" ).append( '<li><span data-id="' + i + '">' + mountData[i].listDisplayName + "</span></li>" );
+			} else {
+				//append opacity
+				$( "#lens_list" ).append( '<li><span style="opacity:.5;" data-id="' + i + '">' + mountData[i].listDisplayName + "</span></li>" );
+			}
+		}
+		
+	} else {
+		//clear camera list
+		$( "#camera_list" ).html('');
 
-	//add margin
-	hypotenuse += hypotenuse / 10;
-	console.log('hypotenuse + 10% = ' + hypotenuse);
+		//regenerate lens list
+		for (i = 0; i < mountData.length; i++) {
 
-	//return round result
-	console.log('diameterCalculation result = ' + Math.round(hypotenuse));
-	return (Math.round(hypotenuse));
+			//check for Adaptall
+			if (mountData[i].listDisplayName != 'Tamron Adaptall') {
+				//check flanges
+				if (mountData[i].flange <= mountData[selectedLens].flange) {
+					//append normal
+					$( "#camera_list" ).append( '<li><span data-id="' + i + '">' + mountData[i].listDisplayName + "</span></li>" );
+				} else {
+					//append opacity
+					$( "#camera_list" ).append( '<li><span style="opacity:.5;" data-id="' + i + '">' + mountData[i].listDisplayName + "</span></li>" );
+				}
+			}
+
+
+
+			
+		}
+	}
 }
 
 //transition from select view to list view
@@ -45,8 +77,8 @@ function drawTransitionToList() {
 	$('#answer_line').css('display', 'none');
 
 	//hide graphics
-	$('#lens_circle').css('display', 'none');
-	$('#sensor_square').css('display', 'none');
+	$('#lens_container').css('display', 'none');
+	$('#sensors_container').css('display', 'none');
 
 	//change position of background graphics
 	$('#background_graphics_sensors').css('top', '1200px');
@@ -90,8 +122,8 @@ function drawTransitionToSelect() {
 	$('#answer_line').css('display', 'block');
 
 	//display graphics
-	$('#lens_circle').css('display', 'block');
-	$('#sensor_square').css('display', 'block');
+	$('#lens_container').css('display', 'block');
+	$('#sensors_container').css('display', 'block');
 
 	//change position of background graphics
 	$('#background_graphics_sensors').css('top', '0');
@@ -112,13 +144,22 @@ function drawTransitionToSelect() {
 	//change container top position
 	$('.question_container').css('top', 'calc(50% - 229px)');
 
-	//change lines position and size
+	//change lines position
 	$('#lens_line').css('height', '2px');
 	$('#lens_line').css('top', 'calc(50% - 127px)');
-	$('#lens_line').css('width', '70%');
 	$('#sensor_line').css('height', '2px');
 	$('#sensor_line').css('top', 'calc(50% - 1px)');
-	$('#sensor_line').css('width', '70%');
+	
+	//change sensor line size
+	$('#sensor_line').css('width', 'calc(70% - ' + (maxSensorWidth / 2) + 'px)');
+
+	//calculate margin for lens line
+	lensLineMargin = Math.sqrt(((maxLensDiameter / 2) ** 2) - (124 ** 2));
+	//vertical margin between lens is 124px
+	//Math.sqrt((a ** 2) + (b ** 2))
+
+	//change lens line size
+	$('#lens_line').css('width', 'calc(70% + 2px - ' + lensLineMargin + 'px)');
 	
 	//hide lists
 	$('.list_container').css('display', 'none');
@@ -160,44 +201,84 @@ function drawAnswer(type,title,message) {
 
 
 
+//draw sensors
+function drawSensor() {
+	//clear sensors
+	$('#sensors_container').html('');
 
-function drawSensor(width,height) {
-	//check if values are valid
-	if (isNaN(width) || isNaN(height) || width < 0 || height < 0) {
-		//invalid values
-		console.log('ERROR: drawSensor gets invalid values:' + 'width = ' + width + '; height = ' + height);
-		return false;
+	//clear max lens diameter
+	maxSensorWidth = 0;
+
+	//get senesors data
+	for (i = 0; i < mountData[selectedCamera].sensor.length; i++) {
+
+		sensorName = mountData[selectedCamera].sensor[i][0]
+		sensorWidth = mountData[selectedCamera].sensor[i][1];
+		sensorHeight = mountData[selectedCamera].sensor[i][2];
+
+		//check if this sensor the biggest
+		if (sensorWidth > maxSensorWidth) {
+			maxSensorWidth = sensorWidth;
+		}
+
+		//draw sensor
+		$('#sensors_container').append('<div style="width:' + sensorWidth + 'px; height:' + sensorHeight + 'px; left:calc(70% - ' + (sensorWidth / 2) + 'px); top:calc(50% - ' + (sensorHeight / 2) + 'px);"></div>');
+
+		//TODO draw sensor names
 	}
-	
-	//change sensor size
-	$("#sensor_square").width(width);
-	$("#sensor_square").height(height);
-	
-	//apply new sensor position
-	$("#sensor_square").css('top', "calc(50% - " + (height / 2) + "px)");
-	$("#sensor_square").css('left', "calc(70% - " + (width / 2) + "px)");
-
-}
-
-function drawLens(diameter) {
-	//check if value are valid
-	if (isNaN(diameter) || diameter < 0) {
-		//invalid value
-		console.log('ERROR: drawLens gets invalid value: ' + 'diameter = ' + diameter);
-		return false;
-	}
-
-	//change lens size
-	$("#lens_circle").width(diameter);
-	$("#lens_circle").height(diameter);
-
-	//apply new lens position
-	$("#lens_circle").css('top', "calc(50% - " + (diameter / 2) + "px)");
-	$("#lens_circle").css('left', "calc(70% - " + (diameter / 2) + "px)");
 
 }
 
 
-function hypotenuse(a,b) {
-	return Math.sqrt((a ** 2) + (b ** 2));
+
+
+
+
+function drawLens() {
+	//clear lens
+	$('#lens_container').html('');
+
+	//clear max sensor width
+	maxLensDiameter = 0;
+
+	//get senesors data
+	for (i = 0; i < mountData[selectedLens].sensor.length; i++) {
+
+		sensorName = mountData[selectedLens].sensor[i][0]
+		sensorWidth = mountData[selectedLens].sensor[i][1];
+		sensorHeight = mountData[selectedLens].sensor[i][2];
+
+		//find lens diameter
+		lensDiameter = Math.sqrt((sensorWidth ** 2) + (sensorHeight ** 2)) + 10; // +10px
+
+		//check if its bigger diameter
+		if (lensDiameter > maxLensDiameter) {
+			maxLensDiameter = lensDiameter;
+		}
+
+		//draw lens circle
+		$('#lens_container').append('<div style="width:' + lensDiameter + 'px; height:' + lensDiameter + 'px; left:calc(70% - ' + (lensDiameter / 2) + 'px); top:calc(50% - ' + (lensDiameter / 2) + 'px);"></div>');
+
+	}
+
+		
+
+}
+
+
+//Function calculates diameter for lens circle
+function diameterCalculation(width,height) {
+	console.log('diameterCalculation(' + width + ', ' + height + ')');
+
+	//calculate hypotenuse
+	hypotenuse = Math.sqrt((width ** 2) + (height ** 2));
+	console.log('hypotenuse = ' + hypotenuse);
+
+	//add margin
+	hypotenuse += hypotenuse / 10;
+	console.log('hypotenuse + 10% = ' + hypotenuse);
+
+	//return round result
+	console.log('diameterCalculation result = ' + Math.round(hypotenuse));
+	return (Math.round(hypotenuse));
 }

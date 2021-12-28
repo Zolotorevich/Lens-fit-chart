@@ -2,6 +2,7 @@
 var selectedLens;
 var selectedCamera;
 var listView = false;
+var lensChoice = false;
 
 //events handlers
 $(document).ready(function(){
@@ -12,7 +13,6 @@ $(document).ready(function(){
 	$('#lens_list').on('click', 'span', function() {
 		//update global value
 		selectedLens = $(this).attr( "data-id" );
-		// console.log('selectedLens = ' + selectedLens);
 
 		//update selector
 		$('#question_lens span').text( mountData[selectedLens].selectDisplayName );
@@ -25,7 +25,6 @@ $(document).ready(function(){
 	$('#camera_list').on('click', 'span', function() {
 		//update global value
 		selectedCamera = $(this).attr( "data-id" );
-		// console.log('selectedCamera = ' + selectedCamera);
 
 		//update selector
 		$('#question_camera span').text( mountData[selectedCamera].selectDisplayName );
@@ -68,18 +67,36 @@ $(document).ready(function(){
 //checking if user choose lens amd camera
 function checkChoice() {
 	if (selectedCamera == null) {
+		//note that user first selected lens
+		lensChoice = true;
+
+		//regenerate lens list
+		reGenerateList('camera_list');
+
 		//scroll to camera select
 		$([document.documentElement, document.body]).animate({
 			scrollTop: $("#question_camera").offset().top - 50
 		}, 1000);
 
 	} else if (selectedLens == null) {
+		//regenerate lens list
+		reGenerateList('lens_list');
+
 		//scroll to lens select
 		$([document.documentElement, document.body]).animate({
 			scrollTop: $("#question_lens").offset().top - 50
 		}, 1000);
 
 	} else {
+		//regenrate lists
+		if (lensChoice) {
+			//regenerate camera lens
+			reGenerateList('camera_list');
+		} else {
+			//regenerate lens list
+			reGenerateList('lens_list');
+		}
+
 		//compare flanges
 		compareFlange();
 	}
@@ -90,7 +107,7 @@ function compareFlange() {
 	flangesDiff = mountData[selectedLens].flange - mountData[selectedCamera].flange;
 
 	//adapter tolerance in mm
-	flangeTolerance = 2;
+	flangeTolerance = 0.7;
 
 	//check if difference positive
 	if (flangesDiff > 0) {
@@ -101,7 +118,7 @@ function compareFlange() {
 			drawAnswer('green','Yes','');
 		} else {
 			//round flanges difference
-			roundedFlangesDiff = Math.round(flangesDiff * 10);
+			roundedFlangesDiff = Math.round(flangesDiff * 10) / 10;
 
 			//yes but
 			drawAnswer('yellow','Yes, but...',`flange difference ${roundedFlangesDiff} mm may be short for adapter`);
@@ -112,50 +129,15 @@ function compareFlange() {
 
 	} else {
 		//check if same mounts selected
-		if (selectedLens == selectedCamera) {
+		isMountsTheSame = checkEqualsMounts();
+
+		if (isMountsTheSame) {
 			//Same
 			drawAnswer('green','Yes',"It's the same mount");
-		}
-
-		//check Minolta and Sony Alpha
-		else if (
-			mountData[selectedCamera].selectDisplayName == 'Sony A'
-			&& mountData[selectedLens].selectDisplayName == 'Minolta A'
-			) {
-				//Same
-				drawAnswer('green','Yes',"It's the same mount");
-		}
-
-		else if (
-			mountData[selectedCamera].selectDisplayName == 'Minolta A'
-			&& mountData[selectedLens].selectDisplayName == 'Sony A'
-			) {
-				//Same
-				drawAnswer('green','Yes',"It's the same mount");
-		}
-
-		//check M37×0.75 and Mini T-mount
-		else if (
-			mountData[selectedCamera].selectDisplayName == 'Mini T-mount'
-			&& mountData[selectedLens].selectDisplayName == 'M37 × 0.75'
-			) {
-				//Same
-				drawAnswer('green','Yes',"It's the same mount");
-		}
-
-		else if (
-			mountData[selectedCamera].selectDisplayName == 'M37 × 0.75'
-			&& mountData[selectedLens].selectDisplayName == 'Mini T-mount'
-			) {
-				//Same
-				drawAnswer('green','Yes',"It's the same mount");
-		}
-
-		else {
+		} else {
 			//No
 			drawAnswer('red','No',"lens flange shorter than camera’s");
 		}
-
 	}
 
 	//draw sensor and lens
@@ -165,6 +147,61 @@ function compareFlange() {
 	//get back to select view
 	drawTransitionToSelect();
 	
+}
+
+
+function checkEqualsMounts() {
+	//check if same mounts selected
+	if (selectedLens == selectedCamera) {
+		return true;
+	}
+
+	//check Minolta and Sony Alpha
+	else if (
+		mountData[selectedCamera].selectDisplayName == 'Sony A'
+		&& mountData[selectedLens].selectDisplayName == 'Minolta A'
+		) {
+			return true;
+	}
+
+	else if (
+		mountData[selectedCamera].selectDisplayName == 'Minolta A'
+		&& mountData[selectedLens].selectDisplayName == 'Sony A'
+		) {
+			return true;
+	}
+
+	//check M37×0.75 and Mini T-mount
+	else if (
+		mountData[selectedCamera].selectDisplayName == 'Mini T-mount'
+		&& mountData[selectedLens].selectDisplayName == 'M37 × 0.75'
+		) {
+			return true;
+	}
+
+	else if (
+		mountData[selectedCamera].selectDisplayName == 'M37 × 0.75'
+		&& mountData[selectedLens].selectDisplayName == 'Mini T-mount'
+		) {
+			return true;
+	}
+
+	//check Zeiss ZM and Leica M
+	else if (
+		mountData[selectedCamera].selectDisplayName == 'Zeiss ZM'
+		&& mountData[selectedLens].selectDisplayName == 'Leica M'
+		) {
+			return true;
+	}
+
+	else if (
+		mountData[selectedCamera].selectDisplayName == 'Leica M'
+		&& mountData[selectedLens].selectDisplayName == 'Zeiss ZM'
+		) {
+			return true;
+	}
+
+	return false;
 }
 
 //check if we need crop and display it
