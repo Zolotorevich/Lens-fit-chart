@@ -4,7 +4,7 @@ var mountData = [
 		"selectDisplayName":"1/2˝ TV bayonet",
 		"flange":35.74,
 		"sensor":[
-			["1/2˝ 3-CCD",64,48]
+			["1/2˝",64,48]
 		]
 	},
 	{
@@ -55,7 +55,7 @@ var mountData = [
 		"selectDisplayName":"B4-mount",
 		"flange":48,
 		"sensor":[
-			["2/3˝ 3-CCD",96,54]
+			["2/3˝",96,54]
 		]
 	},
 	{
@@ -171,7 +171,6 @@ var mountData = [
 		"flange":12.53,
 		"sensor":[
 			["1/4˝",36,27],
-			["1/3˝",48,36],
 			["1/2˝",64,48]
 		]
 	},
@@ -268,7 +267,7 @@ var mountData = [
 		"selectDisplayName":"JVC 1/3˝ bayonet",
 		"flange":25,
 		"sensor":[
-			["1/3˝ 3-CCD",52,29]
+			["1/3˝",52,29]
 		]
 	},
 	{
@@ -628,8 +627,7 @@ var mountData = [
 		"selectDisplayName":"Pentax Q",
 		"flange":9.2,
 		"sensor":[
-			["1/2.3˝",62,46],
-			["1/1.7˝",76,57]
+			["1/1.7˝",74,57]
 		]
 	},
 	{
@@ -727,7 +725,7 @@ var mountData = [
 		"selectDisplayName":"Sony 1/2˝",
 		"flange":38,
 		"sensor":[
-			["1/2˝ 3-CCD",64,48]
+			["1/2˝",64,48]
 		]
 	},
 	{
@@ -846,17 +844,3 @@ var mountData = [
 		]
 	}
 ];
-
-
-/*
-
-{
-		"listDisplayName":"",
-		"selectDisplayName":"",
-		"flange":,
-		"sensor":[
-			["",,]
-		]
-	},
-
-*/

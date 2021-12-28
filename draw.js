@@ -57,11 +57,10 @@ function reGenerateList(listType) {
 					$( "#camera_list" ).append( '<li><span style="opacity:.5;" data-id="' + i + '">' + mountData[i].listDisplayName + "</span></li>" );
 				}
 			}
-
-
-
-			
 		}
+
+		//add empty line in camera lens fro better colums distribution
+		$( "#camera_list" ).append('<li>&nbsp;</li>');
 	}
 }
 
@@ -79,7 +78,8 @@ function drawTransitionToList() {
 	//hide graphics
 	$('#lens_container').css('display', 'none');
 	$('#sensors_container').css('display', 'none');
-
+	$('#graphics_labels_container').css('display', 'none');
+	
 	//change position of background graphics
 	$('#background_graphics_sensors').css('top', '1200px');
 
@@ -130,6 +130,7 @@ function drawTransitionToSelect() {
 	//display graphics
 	$('#lens_container').css('display', 'block');
 	$('#sensors_container').css('display', 'block');
+	$('#graphics_labels_container').css('display', 'block');
 
 	//change position of background graphics
 	$('#background_graphics_sensors').css('top', '0');
@@ -183,7 +184,7 @@ function drawTransitionToSelect() {
 		lensLineMargin = Math.round(Math.sqrt(((maxLensDiameter / 2) ** 2) - (124 ** 2)));
 
 		//change lens line size
-		$('#lens_line').css('width', 'calc(70% + 5px - ' + lensLineMargin + 'px)');
+		$('#lens_line').css('width', 'calc(70% + 3px - ' + lensLineMargin + 'px)');
 	}
 
 	//hide lists
@@ -246,9 +247,7 @@ function drawSensor() {
 		$('#sensors_container').append('<div style="width:' + sensorWidth + 'px; height:' + sensorHeight + 'px; left:calc(70% - ' + (sensorWidth / 2) + 'px); top:calc(50% - ' + (sensorHeight / 2) + 'px);"></div>');
 
 		//draw sensor names
-		// $('#graphics_labels').append('<div class="sensor_label">' + sensorName + '</div>');
-		
-
+		$('#graphics_labels_container').append('<div class="graphics_labels" style="top:calc(50% - 6px + ' + (sensorHeight / 2) + 'px);"><div class="sensor_label">' + sensorName + '</div></div>');
 
 	}
 
@@ -280,8 +279,8 @@ function drawLens() {
 		//draw lens circle
 		$('#lens_container').append('<div style="width:' + lensDiameter + 'px; height:' + lensDiameter + 'px; left:calc(70% - ' + (lensDiameter / 2) + 'px); top:calc(50% - ' + (lensDiameter / 2) + 'px);"></div>');
 
-		//TODO draw lens names
-
+		//draw sensor names
+		$('#graphics_labels_container').append('<div class="graphics_labels" style="top:calc(50% - 6px - ' + (lensDiameter / 2) + 'px);"><div class="lens_label">' + sensorName + '</div></div>');
 
 	}
 

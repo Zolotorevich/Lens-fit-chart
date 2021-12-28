@@ -143,6 +143,9 @@ function compareFlange() {
 		$('#answerCrop').css('display','none');
 	}
 
+	//clear lens and sensor labels
+	$('#graphics_labels_container').html('');
+
 	//draw sensor and lens
 	drawSensor();
 	drawLens();
