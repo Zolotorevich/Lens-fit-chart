@@ -318,7 +318,7 @@ var mountData = [
 		"flange":20,
 		"sensor":[
 			["Full frame",360,240],
-			["APS-C",236,157]
+			["APS-C",236,156]
 		]
 	},
 	{
@@ -620,7 +620,7 @@ var mountData = [
 		"flange":45.46,
 		"sensor":[
 			["Full frame",360,240],
-			["APS-C",235,155]
+			["APS-C",235,156]
 		]
 	},
 	{
@@ -701,7 +701,7 @@ var mountData = [
 		"selectDisplayName":"Samsung NX",
 		"flange":25.5,
 		"sensor":[
-			["APS-C",234,156]
+			["APS-C",235,156]
 		]
 	},
 	{

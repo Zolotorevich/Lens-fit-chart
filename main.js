@@ -1,9 +1,12 @@
-//Global variables for selected options
+//Global variables for selected options and view
 var selectedLens;
 var selectedCamera;
+var listView = false;
 
 //events handlers
 $(document).ready(function(){
+	//generate lists of lens and cameras on page load
+	generateLists();
 
 	//click on lens in list
 	$('#lens_list').on('click', 'span', function() {
@@ -30,6 +33,36 @@ $(document).ready(function(){
 		//check choise
 		checkChoice();
 	});
+
+	//click on lens slector
+	$('#question_lens').on('click', 'span', function() {
+		//check if we not in list view
+		if (!listView) {
+			//display list
+			drawTransitionToList();
+
+			//scroll to lens
+			$([document.documentElement, document.body]).animate({
+				scrollTop: $("#question_lens").offset().top + 100
+			}, 1000);
+		}
+	});
+
+	//click on camera slector
+	$('#question_camera').on('click', 'span', function() {
+		//check if we not in list view
+		if (!listView) {
+			//display list
+			drawTransitionToList();
+
+			//scroll to lens
+			$([document.documentElement, document.body]).animate({
+				scrollTop: $("#question_camera").offset().top + 350
+			}, 1000);
+		}
+
+	});
+	
 });
 
 //checking if user choose lens amd camera
@@ -59,18 +92,29 @@ function compareFlange() {
 	//adapter tolerance in mm
 	flangeTolerance = 2;
 
-	//check if difference positiove
+	//check if difference positive
 	if (flangesDiff > 0) {
-		console.log('YES');
 
 		//check if difference in tolerance
-		if (flangesDiff < flangeTolerance) {
-			console.log('YES, BUT');
+		if (flangesDiff > flangeTolerance) {
+			//yes
+			drawAnswer('green','Yes','');
+		} else {
+			//round flanges difference
+			roundedFlangesDiff = Math.round(flangesDiff * 10);
+
+			//yes but
+			drawAnswer('yellow','Yes, but...',`flange difference ${roundedFlangesDiff} mm may be short for adapter`);
 		}
+
+		//check if we need crop
+		checkCrop();
+
 	} else {
 		//check if same mounts selected
 		if (selectedLens == selectedCamera) {
-			console.log('SAME');
+			//Same
+			drawAnswer('green','Yes',"It's the same mount");
 		}
 
 		//check Minolta and Sony Alpha
@@ -78,24 +122,56 @@ function compareFlange() {
 			mountData[selectedCamera].selectDisplayName == 'Sony A'
 			&& mountData[selectedLens].selectDisplayName == 'Minolta A'
 			) {
-			console.log('SAME');
+				//Same
+				drawAnswer('green','Yes',"It's the same mount");
 		}
 
 		else if (
 			mountData[selectedCamera].selectDisplayName == 'Minolta A'
 			&& mountData[selectedLens].selectDisplayName == 'Sony A'
 			) {
-			console.log('SAME');
+				//Same
+				drawAnswer('green','Yes',"It's the same mount");
+		}
+
+		//check M37×0.75 and Mini T-mount
+		else if (
+			mountData[selectedCamera].selectDisplayName == 'Mini T-mount'
+			&& mountData[selectedLens].selectDisplayName == 'M37 × 0.75'
+			) {
+				//Same
+				drawAnswer('green','Yes',"It's the same mount");
+		}
+
+		else if (
+			mountData[selectedCamera].selectDisplayName == 'M37 × 0.75'
+			&& mountData[selectedLens].selectDisplayName == 'Mini T-mount'
+			) {
+				//Same
+				drawAnswer('green','Yes',"It's the same mount");
 		}
 
 		else {
-			console.log('NO');
+			//No
+			drawAnswer('red','No',"lens flange shorter than camera’s");
 		}
 
 	}
 
-	//display crop (optional)
+	//draw sensor and lens
+	drawSensor();
+	drawLens();
 
-	//draw graphics
+	//get back to select view
+	drawTransitionToSelect();
 	
+}
+
+//check if we need crop and display it
+function checkCrop() {
+	//TODO if we have APS-C and FF, then we don't need crop
+	//also if sensors sizes equals
+	//display crop in #answerCrop
+
+	console.log('checkCrop');
 }

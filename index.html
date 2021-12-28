@@ -4,57 +4,69 @@
 	<meta charset="UTF-8">
 	<title>Lens Fit Chart</title>
 	<link rel="stylesheet" href="main.css?1">
+	<script src="jquery-3.6.0.min.js"></script>
 	<script src="main.js"></script>
 	<script src="draw.js"></script>
 	<script src="data.js"></script>
-	<script src="jquery-3.6.0.min.js"></script>
+	
 </head>
 <body>
 	<div class="question_container">
-		<div>Will</div><br/>
-		<div id="question_lens">This lens</div><br/>
-		<div>Fit on</div><br/>
-		<div id="question_camera">My camera</div><br/>
-		<div>?</div>
+		<div class="selector_header">Will</div>
+
+		<div class="selector_header" id="question_lens"><span class="white_hover_pointer">This lens</span></div>
+		<div class="list_container"><ul id="lens_list"></ul></div>
+
+		<div class="selector_header">Fit on</div>
+
+		<div class="selector_header" id="question_camera"><span class="white_hover_pointer">My camera</span></div>
+		<div class="list_container"><ul id="camera_list"></ul></div>
+
+		<div class="selector_header">?</div>
 	</div>
 
-	<!-- <div class="answer_container yellowBorder">
-		<div id="answerHeader" class="answerYesBut">
-			Yes, but...<br/>
-			<span>flange difference 1.4 mm may not fit adapter</span>
-		</div>
-		<div class="answerCrop">123123</div>
-	</div> -->
+	<div id="lens_line"></div>
+	<div id="sensor_line"></div>
 
-	<!-- <div class="answer_container greenBorder">
-		<div id="answerHeader" class="answerYes">
-			Yes
+	<div id="answer_container">
+		<div id="answerHeader">
+			No<br/><span>lens flange shorter than camera’s</span>
 		</div>
-		<div class="answerCrop">123123</div>
-	</div> -->
-
-	<!-- <div class="answer_container greenBorder">
-		<div id="answerHeader" class="answerYes">
-			Yes
-		</div>
-		<div class="answerCrop"></div>
-	</div> -->
-
-	<div class="answer_container redBorder">
-		<div id="answerHeader" class="answerNo">
-			No
-			<br/><span>lens flange shorter than camera’s</span>
-		</div>
-		<div class="answerCrop"></div>
+		<div id="answerCrop"></div>
 	</div>
+
+	<div id="answer_line"></div>
 
 	<div id="lens_circle"></div>
 	<div id="sensor_square"></div>
 
-	<div id="sensor_line"></div>
-	<div id="lens_line"></div>
-	<div id="answer_line"></div>
+	<div id="background_graphics_sensors">
+		<div class="graph_full_frame"></div>
+		<div class="graph_aps_c"></div>
+		<div class="graph_6_by_45"></div>
+		<div class="graph_6_by_6"></div>
+		<div class="graph_6_by_7"></div>
+		<div class="graph_45_by_30"></div>
+		<div class="graph_280_by_280"></div>
+		<div class="graph_16_mm"></div>
+		<div class="graph_xpan"></div>
+		<div class="graph_110"></div>
+		<div class="graph_1_2_inc"></div>
+	</div>
 
+	<div id="background_graphics_lens">
+		<div class="graph_full_frame_lens"></div>
+		<!-- <div class="graph_aps_c_lens"></div>
+		<div class="graph_6_by_45_lens"></div>
+		<div class="graph_6_by_6_lens"></div>
+		<div class="graph_6_by_7_lens"></div>
+		<div class="graph_45_by_30_lens"></div>
+		<div class="graph_280_by_280_lens"></div>
+		<div class="graph_16_mm_lens"></div>
+		<div class="graph_xpan_lens"></div>
+		<div class="graph_110_lens"></div>
+		<div class="graph_1_2_inc_lens"></div> -->
+	</div>
 
 	<a href="http://www.zolotorevich.com/"><div id="rzlogotype"></div></a>
 </body>
